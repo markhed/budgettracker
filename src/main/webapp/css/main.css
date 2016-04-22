@@ -1,0 +1,251 @@
+/*-----------------------------------------------------------*/
+* {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", 
+				"Helvetica Neue", Helvetica, Arial, 
+				"Lucida Grande", sans-serif;
+	font-weight: 400; 
+	font-size: 13px;
+	color: white;
+	letter-spacing: 1px;
+	background-color: transparent;
+}
+/*-----------------------------------------------------------*/
+body {
+	background-color: #e7e7de;
+	min-width: 80%;
+	margin: 30px 30px 0px 30px;
+	font-size: 90%;
+	top: 5%; 
+}
+/*-----------------------------------------------------------*/
+h1,
+h2 {
+	display: inline;
+}
+/*-----------------------------------------------------------*/
+input {
+	margin: 2px 2px 2px 2px;
+	font-size: 90%;
+	border-style: hidden;
+	cursor: pointer;
+}
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color: white;
+    font-style: oblique;
+    font-size: 90%;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+    font-style: oblique;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+    font-style: oblique;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: white;
+    font-style: oblique;
+}
+input:focus {
+	background-color: white;
+	color: black;
+	font-weight: bold;
+}
+input[type="text"] {
+	width: 120px;
+	height: 20px;
+}
+input[type="text"]:focus {
+	cursor: text;
+}
+input[type="button"]:focus {
+	background-color: transparent;
+	color: white;
+	border-style: hidden;
+}
+input[type="button"]:hover, 
+select:hover, 
+option {
+	background-color: white;
+	font-weight: bold;
+	color: black;
+	border-style: hidden;
+}
+input[type="button"].minimize, 
+input[type="button"].delete {
+	width: 20px;
+	margin: 0px 0px 0px 0px;  
+}
+input[type="button"].delete {
+	border-top-right-radius: 3px; 
+}
+input.title {
+	width: 100px;
+}
+input.amount {
+	width: 90px;
+}
+select {
+	-webkit-appearance: none;
+	cursor: pointer;
+	float: right;
+	border-style: hidden;
+}
+/*-----------------------------------------------------------*/
+#main_head {
+	height: 10px;
+	width: 100%;
+	min-width: 340px;
+	padding: 30px 0px 30px 0px;
+	color: #F5F5F5;
+	text-align: center;
+	font-weight: bolder;
+	font-size: Small;
+	background-color: #551D8F;
+	border-radius: 25px 25px 0px 0px;
+}
+/*-----------------------------------------------------------*/
+#menu_area {
+	float: left;
+	padding: 5px 5px 5px 5px;
+	margin-right: 0px;
+	width: 150px;
+	background-color: #FF3333;
+	display: block;
+}
+#menu_area input[type="button"].common, 
+#menu_area * /*temporary*/
+{
+	float: right;
+	height: 40px;
+	width: 145px;
+	letter-spacing: 4px;
+	margin: 2px 2px 2px 2px;
+	display: block;
+	font-weight: bolder;
+}
+/*-----------------------------------------------------------*/
+.main_area {
+	width: calc(100% - 150px - 10px);
+	min-width: 340px;
+	float: left;
+}
+/*-----------------------------------------------------------*/
+#modules_area {
+	background-color: #A081C1;
+	min-height: 142px;
+}
+/*-----------------------------------------------------------*/
+#accounts {
+	background-color: #3333FF;
+}
+/*-----------------------------------------------------------*/
+#cycles_area {
+	width: calc(100% - 150px - 50px);
+	min-height: 102px;
+	background-color: #B2B2B2;
+}
+#cycles_area .body .cycle:nth-child(even) {
+	background-color: #CACACA;
+}
+#cycles_area .body .cycle:nth-child(odd) {
+	background-color: #DADADA;
+}
+/*-----------------------------------------------------------*/
+.module, 
+.cycle {
+	padding: 20px 20px 20px 20px;
+}
+.module .head, 
+.cycle .head {
+	font-weight: bolder;
+	padding: 10px 0px 10px 0px;
+}
+/*-----------------------------------------------------------*/
+.module_item, 
+.cashflow {
+	width: 270px;
+	padding: 5px 5px 5px 5px;
+	display: inline-block;
+	border-color: #F0F0F0;
+	border-style: solid;
+	border-top-right-radius: 7px;
+	margin: 4px 4px 4px 4px;
+}
+.module_item .head,
+.cashflow .head {
+	padding: 0px 0px 0px 0px;
+}
+.module_item .body .currentAmount,
+.cashflow .body .currentAmount {
+	display: block;
+}
+.module_item input[type="text"]:hover,
+.cycle input[type="text"]:hover,
+.cashflow input[type="text"]:hover {
+	font-weight: bold;
+}
+.module_item.minimized input[type="text"]:hover,
+.cycle.minimized input[type="text"]:hover,
+.cashflow.minimized input[type="text"]:hover {
+	font-weight: normal;
+}
+.module_item input::-webkit-input-placeholder,
+.cashflow input::-webkit-input-placeholder { /* WebKit browsers */
+    font-weight: normal;
+}
+.module_item input:-moz-placeholder,
+.cashflow input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-weight: normal;
+}
+.module_item input::-moz-placeholder,
+.cashflow input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-weight: normal;
+}
+.module_item input:-ms-input-placeholder,
+.cashflow input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    font-weight: normal;
+}
+.module_item select.status,
+.cashflow select.status {
+	float: right;
+}
+.module_item.account.minimized {
+	background-color: #4747FF;
+}
+.module_item.account {
+	background-color: #5959FF;
+}
+.module_item.account option {
+	color: blue;
+}
+/*-----------------------------------------------------------*/
+.inflow {
+	background-color: #99CCFF;
+}
+/*-----------------------------------------------------------*/
+.outflow {
+	background-color: #E65C5C;
+}
+/*-----------------------------------------------------------*/
+.head {
+	display: block;
+}
+.window_bar {
+	float: right;
+}
+.window_bar input {
+	font-weight: 800;
+}
+.minimized {
+	cursor: pointer;
+}
+.minimized .head select:hover {
+	background-color: transparent;
+	color: white;
+	border-style: hidden;
+	font-weight: normal;
+}
+.minimized input.amount {
+	width: 70px;
+}

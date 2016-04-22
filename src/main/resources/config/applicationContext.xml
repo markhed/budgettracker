@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file contains the bean definitions (plain old Java objects) used by the DispatcherServlet. 
+It is the WebApplicationContext where all web-related components go. 
+The name of this file is determined by the value of the <servlet-name/> element from the 'web.xml', 
+with '-servlet' appended to it (hence 'springapp-servlet.xml'). This is the standard naming convention 
+used with Spring's Web MVC framework. Now, add a bean entry named '/hello.htm' and specify the class as 
+springapp.web.HelloController. This defines the controller that our application will be using to 
+service a request with the corresponding URL mapping of '/hello.htm'. The Spring Web MVC framework uses
+an implementation class of the interface called HandlerMapping to define the mapping between a request 
+URL and the object that is going to handle that request (the handler). Unlike the DispatcherServlet, the 
+HelloController is responsible for handling a request for a particular page of the website and is also known 
+as a 'Page Controller' (Fowler). The default HandlerMapping that the DispatcherServlet uses is the BeanNameUrlHandlerMapping; 
+this class will use the bean name to map to the URL in the request so that the DispatcherServlet knows 
+which controller must be invoked for handling different URLs. -->
+
+<!-- includes all the beans to be used in the application, and as well as beans, 
+hibernate and other related configuration files -MH -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--database configuration-->
+	<import resource="datasource-config.xml" />
+	<!--webflow configuration-->
+	<!--Spring security configuration-->
+	
+	<!-- DAO declarations -->
+	<bean id="userDao" class="budgettracker.dao.jpa.UserDaoImpl"/>
+	<bean id="budgetCycleDao" class="budgettracker.dao.jpa.BudgetCycleDaoImpl"/>
+	<bean id="budgetManagerDao" class="budgettracker.dao.jpa.BudgetManagerDaoImpl"/>
+
+	<!-- Services declarations -->
+	<bean id="budgetCycleService" class="budgettracker.service.impl.BudgetCycleServiceImpl">
+		<property name="budgetCycleDao" ref="budgetCycleDao" />
+	</bean>
+	
+	<bean id="userService" class="budgettracker.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	
+	<bean id="budgetManagerService" class="budgettracker.service.impl.BudgetManagerServiceImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
+	
+	
+	<!-- 
+	<bean id="userAuthenticationProviderService" 
+		class="budgettracker.service.impl.UserAuthenticationProviderServiceImpl">
+		<property name="authenticationManager" ref="authenticationManager"/>
+	</bean>
+	 -->
+
+</beans>

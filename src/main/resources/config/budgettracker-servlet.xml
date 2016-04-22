@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
+    
+    <context:annotation-config />
+    <context:component-scan base-package="budgettracker.web.controller" />
+
+	<!-- controllers for each URL -->
+	<!--
+	<bean name="/viewcycle.htm" class="budgettracker.controller.ViewCycleController"/>
+    <bean name="/accounts.htm" class="budgettracker.controller.AccountsController"/>
+	<bean name="/dailyexpenses.htm" class="budgettracker.controller.DailyExpensesController"/>
+    <bean name="/allotments.htm" class="budgettracker.controller.AllotmentsController"/>
+	<bean name="/parties.htm" class="budgettracker.controller.PartiesController">
+    	<property name="partyService" ref="partyService"/>
+    </bean>
+	<bean name="/creditcards.htm" class="budgettracker.controller.CreditCardsController"/>
+    <bean name="/periodic.htm" class="budgettracker.controller.PeriodicController"/>
+	<bean name="/main.htm" class="budgettracker.controller.MainController"/>
+    <bean name="/budgetcycles.htm" class="budgettracker.controller.BudgetCyclesController"/>
+    -->
+    
+    <bean name="/signup.htm" class="budgettracker.web.controller.SignUpController">
+    	<property name="userService" ref="userService"/>
+    	<property name="budgetManagerService" ref="budgetManagerService"/>
+    </bean>
+    
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/pages/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>

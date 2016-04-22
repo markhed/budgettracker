@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="2.4"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+         http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" >
+
+	<!-- The root context is created by the ContextLoaderListener based on the 
+		files named in the contextConfigLocation. This context is intended to contain 
+		the beans that compose the core logic of your app. The DispatcherServlet 
+		context is created when that servlet starts and is based on the file named 
+		"webapp-servlet.xml" ("budgettracker-servlet.xml", in this case). This context 
+		is intended to contain any beans that support the DispatcherServlet instance 
+		that it's associated with and should only have view-related beans in it. -->
+	 
+	<context-param>  <!-- root application context  -->
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>classpath:config\applicationContext.xml</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<servlet> <!-- servlet application context  -->
+		<servlet-name>budgettracker</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:config\budgettracker-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>budgettracker</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<jsp-config>
+		<taglib>
+			<taglib-uri>/spring</taglib-uri>
+			<taglib-location>/WEB-INF/tld/spring-form.tld</taglib-location>
+		</taglib>
+	</jsp-config>
+
+
+</web-app>
